@@ -21,6 +21,15 @@ h1{
 	color: #E82761;
 }
 
+a{
+	text-decoration: none;
+	color: #E82761;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
 #woopWoop{
 }
 

@@ -1,0 +1,46 @@
+html, *{
+	font-family: 'Raleway', sans-serif;
+	font-weight: normal;
+}
+
+body{
+	font-size: 18px;
+	text-align: center;
+	background-color: #EAE9E5;
+	color: #423D42;
+}
+
+h1{
+	font-weight: normal;
+	text-align: center;
+	font-size: 3em;
+	color: #7C6C63;
+	margin: 25px 0 10px 0;
+}
+
+h2{
+	margin: 25px 0 10px 0;
+	font-size: 1.8em;
+}
+
+a{
+	text-decoration: none;
+	color: #BE9171;
+	-webkit-transition: color .4s linear;
+	-moz-transition: color .4s linear;
+	-ms-transition: color .4s linear;
+	-o-transition: color .4s linear;
+	transition: color .4s linear;
+}
+
+a:hover{
+	color: #CCB298;
+}
+
+p{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
