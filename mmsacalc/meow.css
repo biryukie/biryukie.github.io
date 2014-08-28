@@ -2,6 +2,7 @@ html{
 	font-size: 18px;
 	font-family: 'Noto Sans', sans-serif;
 	text-align:center;
+	min-height:100%;
 }
 
 body{
@@ -12,7 +13,7 @@ body{
 		#C6EEFF 40px, 
 		#C6EEFF 80px
 	);
-	/*background-size: 100% 100%;*/
+	background-size: 100% 100%;
 }
 
 h1{
@@ -115,6 +116,7 @@ select{
 	border: none;
 	padding-left: 10px;
 	padding-right: 10px;
+	margin: 10px;
 }
 
 input{ 
