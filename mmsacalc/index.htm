@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>MMSA Value Calculator</title>
+<link rel="stylesheet" type="text/css" href="meow.css">
+<script src="calculator.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>Meow Meow Star Acres Value Calculator</h1>
+<div id="woopWoop">
+<p>Select the types of foods and the amount the customer wants, then type in the customer offer.</p>
+Food 1: <select id="foodOneNew"><script type="text/javascript">ConstructFoodListings();</script></select>
+Amount: <select id="foodOneAmountNew"><script type="text/javascript">amountNumbers();</script></select><p/>
+
+Food 2: <select id="foodTwoNew"><script type="text/javascript">ConstructFoodListings();</script></select>
+Amount: <select id="foodTwoAmountNew"><script type="text/javascript">amountNumbers();</script></select><p/>
+
+Food 3: <select id="foodThreeNew"><script type="text/javascript">ConstructFoodListings();</script></select>
+Amount: <select id="foodThreeAmountNew"><script type="text/javascript">amountNumbers();</script></select><p/>
+
+Customer Offer:<br/>
+<input type="text" placeholder="12345" id="customerOfferNew" size="5"><p/>
+<button type="button" onclick="calculateNew()">Catculate!</button>
+<div id="calculationOfferNew"></div>
+</div>
+<footer><p>This calculator works by adding the times required to make the food and dividing them by the customer offer. If the customer wants a food that requires other foods as ingredients, it adds in the times required to make the foods that are the ingredients for the food the customer wants.<br/>
+The calculator does not take into account the times for harvesting crops, honey, milk, pork, eggs, or trees.</p></footer>
+</body>
+</html>
