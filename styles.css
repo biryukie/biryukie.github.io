@@ -8,6 +8,8 @@ body{
 	text-align: center;
 	background-color: #EAE9E5;
 	color: #423D42;
+	max-width: 40em;
+	margin: 1em auto;
 }
 
 h1{
