@@ -1,2 +1,4 @@
+192.168.2.5
+google.com
 cerebrate.duckdns.org
 127.0.0.1
