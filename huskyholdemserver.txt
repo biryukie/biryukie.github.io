@@ -1,3 +1,3 @@
-192.168.2.5
+cerebrate.duckdns.org:26796
 cerebrate.duckdns.org
 127.0.0.1
