@@ -6,7 +6,7 @@ html, *{
 body{
 	font-size: 18px;
 	text-align: center;
-	background-color: #EAE9E5;
+	background-color: #e9f4ff;
 	color: #423D42;
 	max-width: 40em;
 	margin: 1em auto;
@@ -16,7 +16,7 @@ h1{
 	font-weight: normal;
 	text-align: center;
 	font-size: 3em;
-	color: #7C6C63;
+	color: #055189;
 	margin: 25px 0 10px 0;
 }
 
@@ -27,7 +27,7 @@ h2{
 
 a{
 	text-decoration: none;
-	color: #BE9171;
+	color: #1559a3;
 	-webkit-transition: color .4s linear;
 	-moz-transition: color .4s linear;
 	-ms-transition: color .4s linear;
@@ -36,7 +36,7 @@ a{
 }
 
 a:hover{
-	color: #CCB298;
+	color: #53a0f3;
 }
 
 p{
