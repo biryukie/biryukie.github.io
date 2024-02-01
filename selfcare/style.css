@@ -1,0 +1,47 @@
+html, * {
+	font-family: 'Georgia', serif;
+}
+
+body {
+	background: #eef1ed;
+    color: #3a5338;
+    font-size: 18px;
+    line-height: 1.5;
+	margin: 1em auto;
+    padding: 1em;
+    max-width: 40em; /*700px (?)*/
+}
+
+h1, h2, h3, h4 {
+	font-family: Papyrus, Georgia, serif;
+	color: #84b383;
+	font-weight: normal;
+	line-height: 1.2;
+}
+
+a{
+	text-decoration: none;
+	color: #5a8f58;
+	-webkit-transition: color .4s linear;
+	-moz-transition: color .4s linear;
+	-ms-transition: color .4s linear;
+	-o-transition: color .4s linear;
+	transition: color .4s linear;
+}
+
+a:hover{
+	color: #9CBF9B;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(136 171 122 / 75%), rgba(0, 0, 0, 0));
+}
+
+footer{
+	font-size:.7em;
+	bottom:0;
+	margin-left: auto;
+	margin-right: auto;
+}
