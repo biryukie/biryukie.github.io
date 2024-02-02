@@ -45,3 +45,15 @@ footer{
 	margin-left: auto;
 	margin-right: auto;
 }
+
+fieldset {
+  border: 1px solid #c1dbc1;
+  margin-top: 1em;
+}
+
+legend {
+	font-family: Papyrus, Georgia, serif;
+	color: #84b383;
+	font-size: 1.25em;
+	padding: 5px 10px;
+}

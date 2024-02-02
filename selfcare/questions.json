@@ -1,0 +1,30 @@
+jsonData = [
+     {
+       "id": "physicalsc",
+       "title": "Physical Self-Care",
+       "questions": [
+         "Eat regularly (breakfast, lunch, dinner)",
+         "Get regular medical care for prevention",
+         "Get medical care when needed",
+         "Take time off when sick",
+         "Wear clothes I like",
+         "Do some fun physical activity",
+         "Think positive thoughts about my body",
+         "Exercise",
+         "Eat healthily",
+         "Get massages",
+         "Take vacations",
+         "Get enough sleep",
+         "Do some fun artistic activity"
+       ]
+     },
+     {
+       "id": "psychologicalsc",
+       "title": "Psychological Self-Care",
+       "questions": [
+         "asparagus spears",
+         "broccoli",
+         "carrot sticks"
+       ]
+     }
+   ]

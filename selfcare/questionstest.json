@@ -1,0 +1,20 @@
+jsonData = [
+     {
+       "id": "fruits",
+       "title": "Fruit Salad",
+       "questions": [
+         "apple core",
+         "banana smoothie",
+         "clementines"
+       ]
+     },
+     {
+       "id": "veggies",
+       "title": "Vegetable Delight",
+       "questions": [
+         "asparagus spears",
+         "broccoli",
+         "carrot sticks"
+       ]
+     }
+   ]
