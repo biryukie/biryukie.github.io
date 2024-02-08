@@ -22,9 +22,106 @@ jsonData = [
        "id": "psychologicalsc",
        "title": "Psychological Self-Care",
        "questions": [
-         "asparagus spears",
-         "broccoli",
-         "carrot sticks"
+		"Take day trips or mini-vacations",
+		"Make time for self-reflection",
+		"Have my own personal psychotherapy ",
+		"Write in a journal",
+		"Make time away from technology/internet",
+		"Be curious",
+		"Notice my thoughts, beliefs, attitudes, feelings",
+		"Say no to extra responsibilities",
+		"Engage my intelligence in a new way or area",
+		"Be okay leaving work at work",
+		"Do something at which I am not expert"
        ]
-     }
+     },
+	 {
+		 "id": "emotionalsc",
+		 "title": "Emotional Self-Care",
+		 "questions": [
+			"Spend time with people whose company I enjoy",
+			"Love myself",
+			"Stay in contact with important people in my life",
+			"Allow myself to cry",
+			"Re-read favorite books, re-view favorite movies",
+			"Give myself affirmation/praise",
+			"Identify and seek out comforting activities/places",
+			"Find things that make me laugh",
+			"Express my outrage in social action or discussion"
+		 ]
+	 },
+	 {
+		 "id": "spiritualsc",
+		 "title": "Spiritual Self-Care",
+		 "questions": [
+			"Make time for reflection",
+			"Spend time in nature",
+			"Find a spiritual connection or community",
+			"Be open to inspiration",
+			"Be aware of non-material aspects of life",
+			"Cherish my optimism and hope",
+			"Try at times not to be in charge or the expert",
+			"Be open to knowing",
+			"Identify what is meaningful to me",
+			"Meditate",
+			"Seek out reenergizing or nourishing experiences",
+			"Find time for prayer or praise",
+			"Contribute to causes in which I believe",
+			"Read or listen to something inspirational",
+			"Have experiences of awe"
+		 ]
+	 },
+	 {
+		 "id": "relationshipsc",
+		 "title": "Relationship Self-Care",
+		 "questions": [
+			"Schedule regular dates with my partner",
+			"Make time to be with friends",
+			"Call, check on, or see my relatives",
+			"Ask for help when I need it",
+			"Share a fear, hope, or secret with someone I trust",
+			"Communicate with my family",
+			"Stay in contact with faraway friends",
+			"Enlarge my social circle",
+			"Make time for personal correspondence",
+			"Spend time with animals",
+			"Allow others to do things for me"
+		 ]
+	 },
+	 {
+		 "id": "professionalsc",
+		 "title": "Professional Self-Care",
+		 "questions": [
+			"Take time to chat with coworkers",
+			"Make quiet time to work",
+			"Identify projects/tasks that are exciting",
+			"Take a break during the day",
+			"Balance my load so that nothing is “way too much”",
+			"Set limits with my boss/peers",
+			"Arrange work space to be comfortable",
+			"Have a peer support group",
+			"Get regular supervision or consultation",
+			"Identify rewarding tasks"
+		 ]
+	 },
+	 {
+		 "id": "practicalsc",
+		 "title": "Practical Self-Care",
+		 "questions": [
+			"todo include budgeting, splurging, financial, stuff. and the house cleaning stuff.",
+			"https://www.creativeagingcalgary.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-04-at-3.20.15-PM.png",
+			"https://camhsprofessionals.co.uk/wp-content/uploads/2021/02/4.png"
+		 ]
+	 },
+	 {
+		 "id": "overallbalance",
+		 "title": "Overall Balance",
+		 "questions": [
+			"Strive for balance within my work-life and work day",
+			"Strive for balance among my family, friends, and relationships",
+			"Strive for balance between play and rest",
+			"Strive for balance between work/service and personal time",
+			"Strive for balance in looking forward and acknowledging the moment"
+		 ]
+	 },
    ]
