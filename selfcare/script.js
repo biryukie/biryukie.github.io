@@ -62,6 +62,8 @@ function createRadioButtons(buttonGroupElement, categoryId, questionNumber) {
 function calculateResults() {
     results.innerHTML = ""; // Clear previous results
 
+	let resultsArray = new Array(6);
+
     for (let i = 0; i < jsonData.length; i++) {
         let jsonObj = jsonData[i];
 
@@ -70,7 +72,7 @@ function calculateResults() {
 
         for (let j = 0; j < jsonObj.questions.length; j++) {
             let question = jsonObj.questions[j];
-            totalScore += 5;
+            totalScore += 3;  // todo magic number booboo
             var rating = document.querySelector('input[name="' + jsonObj.id + "q" + j + '-rating"]:checked');
             if (rating) {
                 var questionScore = parseInt(rating.value);
@@ -84,13 +86,16 @@ function calculateResults() {
         }
 
         var result = document.createElement("p");
-        result.innerHTML = jsonObj.title + " score: " + userScore + "/" + totalScore + " (" + calculatePercentage(userScore, totalScore) + ")";
+        result.innerHTML = jsonObj.title + " score: " + userScore + "/" + totalScore + " (" + calculatePercentage(userScore, totalScore) + "%)";
         results.appendChild(result);
+		resultsArray[i] = calculatePercentage(userScore, totalScore);
     }
+	
+	createChart(resultsArray[0], resultsArray[1], resultsArray[2], resultsArray[3], resultsArray[4], resultsArray[5])
 }
 
 function calculatePercentage(part, whole) {
   var percentage = (part * 1.0 / whole) * 100; // Calculates the percentage
   var roundedPercentage = Math.round(percentage * 10) / 10; // Rounds to one decimal place
-  return roundedPercentage + "%"; // Appends the "%" symbol
+  return roundedPercentage;// + "%"; // Appends the "%" symbol
 }

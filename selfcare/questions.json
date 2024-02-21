@@ -96,21 +96,12 @@ jsonData = [
 			"Make quiet time to work",
 			"Identify projects/tasks that are exciting",
 			"Take a break during the day",
-			"Balance my load so that nothing is “way too much”",
+			"Balance my load so that nothing is \"way too much\"",
 			"Set limits with my boss/peers",
 			"Arrange work space to be comfortable",
 			"Have a peer support group",
 			"Get regular supervision or consultation",
 			"Identify rewarding tasks"
-		 ]
-	 },
-	 {
-		 "id": "practicalsc",
-		 "title": "Practical Self-Care",
-		 "questions": [
-			"todo include budgeting, splurging, financial, stuff. and the house cleaning stuff.",
-			"https://www.creativeagingcalgary.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-04-at-3.20.15-PM.png",
-			"https://camhsprofessionals.co.uk/wp-content/uploads/2021/02/4.png"
 		 ]
 	 },
 	 {

@@ -4,11 +4,26 @@
 	<title>Self-Care Assessment</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="chart.js"></script>
 	<script type="text/javascript" src="questions.json"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 </head>
 <body>
+
 	<h1>Self-Care Assessment Quiz</h1>
 	<p>The following is a basic quiz for assessing one's self-care practices. This quiz is not exhaustive, merely suggestive. When you are finished, look for patterns in your responses. Are you more active in some areas of self-care? Do you tend to ignore others? Are there items on the list that hadn't even occurred to you? Listen to your internal responses and dialogue about self-care, and take note of anything you would like to prioritize moving forward. [todo reword]</p>
+	
+	<p>
+		<fieldset>
+		<legend>Rating Key</legend>
+		3 = I do this well (frequently) </br>
+		2 = I do this okay (occasionally) </br>
+		1 = I barely or rarely do this</br>
+		0 = I never do this</br>
+		? = This never occurred to me 
+		</fieldset>
+	</p>
 
     <div id="parentContainer"></div>
 	<script type="text/javascript">ConstructQuestions();</script>
@@ -16,6 +31,10 @@
     <button id="calculateBtn" onclick="calculateResults()">Calculate Score</button>
 	<br/><br/>
     <div id="results"></div>
+	
+	<div>
+	  <canvas id="myChart"></canvas>
+	</div>
 	
 	<p>
 	  <fieldset>
