@@ -8,7 +8,7 @@ function createChart(physicalScore, psychScore, emotionalScore, spiritualScore, 
     var chart = new Chart(ctx, {
         type: 'polarArea',
         data: {
-            labels: ['Physical', 'Psychological', 'Emotional', 'Spritual', 'Relationship', 'Professional'],
+            labels: ['Physical', 'Psychological', 'Emotional', 'Spiritual', 'Relationship', 'Professional'],
             datasets: [
                 {
                     label: 'Dataset 1',
