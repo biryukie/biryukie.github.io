@@ -7,6 +7,7 @@ function ConstructQuestions() {
 		fieldset.id = jsonObj.id;
 		const legend = document.createElement('legend');
 		legend.textContent = jsonObj.title;
+		legend.classList.add(jsonObj.id);
 		fieldset.appendChild(legend);
 		parentContainer.appendChild(fieldset); // Add the fieldset to the parent container
 		
@@ -97,5 +98,5 @@ function calculateResults() {
 function calculatePercentage(part, whole) {
   var percentage = (part * 1.0 / whole) * 100; // Calculates the percentage
   var roundedPercentage = Math.round(percentage * 10) / 10; // Rounds to one decimal place
-  return roundedPercentage;// + "%"; // Appends the "%" symbol
+  return roundedPercentage;
 }

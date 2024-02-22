@@ -3,7 +3,7 @@ html, * {
 }
 
 body {
-	background: #eef1ed;
+	background: #fdfdfd;
     color: #3a5338;
     font-size: 18px;
     line-height: 1.5;
@@ -47,13 +47,40 @@ footer{
 }
 
 fieldset {
-  border: 1px solid #c1dbc1;
+  /*border: 1px solid #c1dbc1;*/
+  
+  border-image: linear-gradient(45deg, violet, pink) 30;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
   margin-top: 1em;
 }
 
 legend {
-	font-family: Papyrus, Georgia, serif;
-	color: #84b383;
+	font-family: 'Georgia', 'Times New Roman', serif;
+	font-weight: bold;
+	color: white;
 	font-size: 1.25em;
 	padding: 5px 10px;
+	background: linear-gradient(45deg, #f9779c, #ffb24d, #fff269, #b3e84a, #7adeff, #d58ce6, #f9779c);
+	border-radius: 10px;
+}
+
+legend.physicalsc {
+	background: linear-gradient(45deg, #f9779c, #ffb24d);
+}
+legend.psychologicalsc {
+	background: linear-gradient(45deg, #ffb24d, #fff269);
+}
+legend.emotionalsc {
+	background: linear-gradient(45deg, #fff269, #b3e84a);
+}
+legend.spiritualsc {
+	background: linear-gradient(45deg, #b3e84a, #7adeff);
+}
+legend.relationshipsc {
+	background: linear-gradient(45deg, #7adeff, #d58ce6);
+}
+legend.professionalsc {
+	background: linear-gradient(45deg, #d58ce6, #f9779c);
 }
