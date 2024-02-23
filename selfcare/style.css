@@ -3,8 +3,8 @@ html, * {
 }
 
 body {
-	background: #fdfdfd;
-    color: #3a5338;
+	background: #ffffff;
+    color: #3d3d3d;
     font-size: 18px;
     line-height: 1.5;
 	margin: 1em auto;
@@ -13,10 +13,15 @@ body {
 }
 
 h1, h2, h3, h4 {
-	font-family: Papyrus, Georgia, serif;
-	color: #84b383;
+	font-family: "Berkshire Swash", Georgia, serif;
+	/*color: magenta;*/
+	font-size: 2.4em;
+	text-align: center;
 	font-weight: normal;
 	line-height: 1.2;
+	background: linear-gradient(to right, #ff645e, #f3437e, #9c63ff, #2196f3, #26c6da, #66df6b, #ffd841, #f9a825, #ff2292);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 a{
@@ -46,21 +51,62 @@ footer{
 	margin-right: auto;
 }
 
+input[type="radio"] {
+  vertical-align: baseline;
+  margin: 7px;
+}
+
+input[type="radio"].physicalsc {
+	accent-color: #ed1f91;
+}
+input[type="radio"].psychologicalsc {
+	accent-color: #df7100;
+}
+input[type="radio"].emotionalsc {
+	accent-color: #699f00;
+}
+input[type="radio"].spiritualsc {
+	accent-color: #09a56b;
+}
+input[type="radio"].relationshipsc {
+	accent-color: #3298b9;
+}
+input[type="radio"].professionalsc {
+	accent-color: #a54edb;
+}
+
 fieldset {
-  /*border: 1px solid #c1dbc1;*/
-  
-  border-image: linear-gradient(45deg, violet, pink) 30;
+  border-image: linear-gradient(45deg, #fcbbce, #ffd9a6, #fff9b4, #d9f4a5, #bdefff, #eac6f3, #fcbbce) 30;
   border-width: 2px;
   border-style: solid;
   border-radius: 5px;
   margin-top: 1em;
 }
 
+fieldset.physicalsc {
+	border-image: linear-gradient(45deg, #fcbbce, #ffd9a6) 30;
+}
+fieldset.psychologicalsc {
+	border-image: linear-gradient(45deg, #ffd9a6, #fff9b4) 30;
+}
+fieldset.emotionalsc {
+	border-image: linear-gradient(45deg, #fff9b4, #d9f4a5) 30;
+}
+fieldset.spiritualsc {
+	border-image: linear-gradient(45deg, #d9f4a5, #bdefff) 30;
+}
+fieldset.relationshipsc {
+	border-image: linear-gradient(45deg, #bdefff, #eac6f3) 30;
+}
+fieldset.professionalsc {
+	border-image: linear-gradient(45deg, #eac6f3, #fcbbce) 30;
+}
+
+
 legend {
-	font-family: 'Georgia', 'Times New Roman', serif;
-	font-weight: bold;
+	font-family: "Berkshire Swash", Georgia, serif;
 	color: white;
-	font-size: 1.25em;
+	font-size: 1.5em;
 	padding: 5px 10px;
 	background: linear-gradient(45deg, #f9779c, #ffb24d, #fff269, #b3e84a, #7adeff, #d58ce6, #f9779c);
 	border-radius: 10px;

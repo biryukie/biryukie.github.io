@@ -5,6 +5,7 @@ function ConstructQuestions() {
 		// Create a group fieldset for the question categories
 		const fieldset = document.createElement('fieldset');
 		fieldset.id = jsonObj.id;
+		fieldset.classList.add(jsonObj.id);
 		const legend = document.createElement('legend');
 		legend.textContent = jsonObj.title;
 		legend.classList.add(jsonObj.id);
@@ -17,9 +18,7 @@ function ConstructQuestions() {
 			// Create a label element
 			var label = document.createElement("label");
 			label.textContent = question;
-
-			const br = document.createElement("br");
-			//label.appendChild(br);
+			label.style.fontWeight = 'bold';
 			
 			// Append label to container
 			fieldset.appendChild(label);
@@ -29,17 +28,18 @@ function ConstructQuestions() {
 			createRadioButtons(buttonGroup, jsonObj.id, j);
 
 			fieldset.appendChild(buttonGroup);
+			
+			const br = document.createElement("br");
+			fieldset.appendChild(br);
 		}
 	}
 }
 
 function createRadioButtons(buttonGroupElement, categoryId, questionNumber) {
 	// Create radio buttons with values from 1 to 5
-	for (var k = -1; k < 4; k++) {
-		buttonLabelText = k;
+	for (var k = 3; k >= -1; k--) {
 		buttonValue = k;
 		if (k == -1) {
-			buttonLabelText = "?"
 			buttonValue = 0;
 		}
 		var radio = document.createElement("input");
@@ -47,16 +47,35 @@ function createRadioButtons(buttonGroupElement, categoryId, questionNumber) {
 		radio.id = categoryId + "q" + questionNumber + "-" + k;
 		radio.name = categoryId + "q" + questionNumber + "-rating";
 		radio.value = buttonValue;
+		radio.classList.add(categoryId);
 
 		// Append radio button to label
 		buttonGroupElement.appendChild(radio);
 
 		// Add the value text label for the radio button
 		var buttonLabel = document.createElement("label");
-		buttonLabel.textContent = buttonLabelText;
+		buttonLabel.textContent = getRatingText(k);
 		buttonLabel.htmlFor = categoryId + "q" + questionNumber + "-" + k;
 		buttonGroupElement.append(buttonLabel);
-		buttonGroupElement.append("\xa0 \xa0 \xa0 \xa0");
+		const br = document.createElement("br");
+		buttonGroupElement.appendChild(br);
+	}
+}
+
+function getRatingText(numberValue) {
+	switch (numberValue) {
+	  case -1:
+		return "This never occurred to me";
+	  case 0:
+		return "I never do this";
+	  case 1:
+		return "I barely or rarely do this";
+	  case 2:
+		return "I do this okay (occasionally)";
+	  case 3:
+		return "I do this well (frequently)";
+	  default:
+		return "unexpected input in getRatingText";
 	}
 }
 
