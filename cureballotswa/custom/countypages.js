@@ -30,10 +30,10 @@ function generateCountyElectionsHTML(countyName) {
     return `
 		<h2>${county.countyname} County</h2>
 		<h3><a href="http://${county.website}" target="_blank" class="display">${county.website}</a></h3>
-		<ul class="style2">
-			<li class="icon solid info fa-envelope"><b>Email:</b> ${county.email}</li>
-			<li class="icon solid info fa-phone-alt"><b>Phone:</b> ${county.phone}</li>
-			<li class="icon solid info fa-fax"><b>Fax:</b> ${county.fax}</li>
+		<ul class="icon-ul">
+		    <li><span class="icon-li"><i class="fa-solid fa-envelope"></i></span><b>Email:</b> ${county.email}</li>
+		    <li><span class="icon-li"><i class="fa-solid fa-phone-alt"></i></span><b>Phone:</b> ${county.phone}</li>
+		    <li><span class="icon-li"><i class="fa-solid fa-fax"></i></span><b>Fax:</b> ${county.fax}</li>
 		</ul>
 		
 		${county.canEmailCurePic ? 
@@ -44,23 +44,23 @@ function generateCountyElectionsHTML(countyName) {
 		''}
 		
 			<h3>${county.secondaryaddress ? 'Addresses' : 'Address'}</h3>
-			
-			<ul class="style2">
-				<li>${county.address}</li>
-				<li class="icon solid info fa-clock"><b>Hours:</b> ${county.officehours}</li>
+			<ul class="icon-ul">
+				<li><span class="icon-li"><i class="fa-solid fa-map-marker-alt"></i></span>${county.address}</li>
+				<li><span class="icon-li"><i class="fa-solid fa-clock"></i></span><b>Hours:</b> ${county.officehours}</li>
 			</ul>
+			
 			
 			${county.secondaryaddress ? 
 			`
-			<ul class="style2">
-				<li>${county.secondaryaddress}</li>
-				<li class="icon solid info fa-clock"><b>Hours:</b> ${county.secondaryofficehours ? `${county.secondaryofficehours}` : `${county.officehours}`}</li>
+			<ul class="icon-ul">
+				<li><span class="icon-li"><i class="fa-solid fa-map-marker-alt"></i></span>${county.secondaryaddress}</li>
+				<li><span class="icon-li"><i class="fa-solid fa-clock"></i></span><b>Hours:</b>  ${county.secondaryofficehours ? `${county.secondaryofficehours}` : `${county.officehours}`}</li>
 			</ul>
 			` 
 			: 
 			''}
 
-		${county.forms ? GenerateFormsHtml(county.forms, county.usesStatewideForm) : ''}
+			${GenerateFormsHtml(county.forms, county.usesStatewideForm)}
 		
 		
 		${county.extraInfo ? `
@@ -73,13 +73,17 @@ function generateCountyElectionsHTML(countyName) {
 }
 
 function GenerateFormsHtml(forms, usesStatewideForm) {
+	if ((!forms || forms.length == 0) && !usesStatewideForm) return "";
+	
 	let formsHtml = '<h3>Forms</h3>';
 	formsHtml += '<ul class="style2">';
 	if (usesStatewideForm) {
 		formsHtml += `<li class="icon solid info fa-link"><a href="${StateGlobals.StatewideForm}" target="_blank">Statewide signature update form</a>`;
 	}
-	for (let [formName, formUrl] of Object.entries(forms)) {
-		formsHtml += `<li class="icon solid info fa-link"><a href="${formUrl}" target="_blank">${formName}</a></li>`;
+	if (forms) {
+		for (let [formName, formUrl] of Object.entries(forms)) {
+			formsHtml += `<li class="icon solid info fa-link"><a href="${formUrl}" target="_blank">${formName}</a></li>`;
+		}
 	}
 	formsHtml += '</ul>';
 	return formsHtml;

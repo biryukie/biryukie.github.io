@@ -1,5 +1,3 @@
-//const statewideForm = "https://www.sos.wa.gov/sites/default/files/2024-06/Signature_Update_Form_English_1.pdf";
-
 function GenerateCountyCards() {
 	for (let i = 0; i < countyElectionsData.length; i++) {
 		let jsonObj = countyElectionsData[i];
@@ -33,23 +31,24 @@ function GenerateCountyCards() {
 		const h2 = document.createElement('h2');
 		h2.textContent = jsonObj.countyname;
 		
+		// Create the list for email, phone, and fax
+		const ul = document.createElement('ul');
+		ul.className = 'icon-ul';
+		
+		const emailLi = createIconListItem('fa-solid fa-envelope', 'Email', jsonObj.email);
+		const phoneLi = createIconListItem('fa-solid fa-phone-alt', 'Phone', jsonObj.phone);
+		const faxLi = createIconListItem('fa-solid fa-fax', 'Fax', jsonObj.fax);
+
+		ul.appendChild(emailLi);
+		ul.appendChild(phoneLi);
+		ul.appendChild(faxLi);
+		
 		const p1 = document.createElement('p');
 		p1.innerHTML = `<a href="https://${jsonObj.website}" target="_blank">${jsonObj.website}</a>`;
 		
-		const p2 = document.createElement('p');
-		p2.textContent = "✉ " + jsonObj.email;
-		
-		const p3 = document.createElement('p');
-		p3.textContent = "☏ Phone: " + jsonObj.phone;
-		
-		const p4 = document.createElement('p');
-		p4.textContent = "🖷 Fax: " + jsonObj.fax;
-		
 		header.appendChild(h2);
 		header.appendChild(p1);
-		header.appendChild(p2);
-		header.appendChild(p3);
-		header.appendChild(p4);
+		header.appendChild(ul);
 
 		// Add the header to the inner div
 		innerDiv.appendChild(header);
@@ -124,89 +123,22 @@ function GenerateCountyCards() {
 	}
 }
 
+// Function to create list item for icon li class
+function createIconListItem(iconClass, label, content) {
+    const li = document.createElement('li');
 
+    const span = document.createElement('span');
+    span.className = 'icon-li';
+    const icon = document.createElement('i');
+    icon.className = iconClass;
+    span.appendChild(icon);
 
-function createRadioButtons(buttonGroupElement, categoryId, questionNumber) {
-	// Create radio buttons with values from 1 to 5
-	for (var k = 3; k >= -1; k--) {
-		buttonValue = k;
-		if (k == -1) {
-			buttonValue = 0;
-		}
-		var radio = document.createElement("input");
-		radio.type = "radio";
-		radio.id = categoryId + "q" + questionNumber + "-" + k;
-		radio.name = categoryId + "q" + questionNumber + "-rating";
-		radio.value = buttonValue;
-		radio.classList.add(categoryId);
+    const b = document.createElement('b');
+    b.textContent = `${label}: `;
 
-		// Append radio button to label
-		buttonGroupElement.appendChild(radio);
-
-		// Add the value text label for the radio button
-		var buttonLabel = document.createElement("label");
-		buttonLabel.textContent = getRatingText(k);
-		buttonLabel.htmlFor = categoryId + "q" + questionNumber + "-" + k;
-		buttonGroupElement.append(buttonLabel);
-		const br = document.createElement("br");
-		buttonGroupElement.appendChild(br);
-	}
-}
-
-function getRatingText(numberValue) {
-	switch (numberValue) {
-	  case -1:
-		return "This never occurred to me";
-	  case 0:
-		return "I never do this";
-	  case 1:
-		return "I barely or rarely do this";
-	  case 2:
-		return "I do this okay (occasionally)";
-	  case 3:
-		return "I do this well (frequently)";
-	  default:
-		return "unexpected input in getRatingText";
-	}
-}
-
-function calculateResults() {
-    results.innerHTML = ""; // Clear previous results
-
-	let resultsArray = new Array(6);
-
-    for (let i = 0; i < jsonData.length; i++) {
-        let jsonObj = jsonData[i];
-
-        var totalScore = 0;
-        var userScore = 0;
-
-        for (let j = 0; j < jsonObj.questions.length; j++) {
-            let question = jsonObj.questions[j];
-            totalScore += 3;  // todo magic number booboo
-            var rating = document.querySelector('input[name="' + jsonObj.id + "q" + j + '-rating"]:checked');
-            if (rating) {
-                var questionScore = parseInt(rating.value);
-                userScore += questionScore;
-                var result = document.createElement("p");
-                results.appendChild(result);
-            } else {
-                //results.innerHTML = "<p>Please rate all fruits.</p>";
-                //return;  // anya todo uncomment
-            }
-        }
-
-        var result = document.createElement("p");
-        result.innerHTML = jsonObj.title + " score: " + userScore + "/" + totalScore + " (" + calculatePercentage(userScore, totalScore) + "%)";
-        results.appendChild(result);
-		resultsArray[i] = calculatePercentage(userScore, totalScore);
-    }
-	
-	createChart(resultsArray[0], resultsArray[1], resultsArray[2], resultsArray[3], resultsArray[4], resultsArray[5])
-}
-
-function calculatePercentage(part, whole) {
-  var percentage = (part * 1.0 / whole) * 100; // Calculates the percentage
-  var roundedPercentage = Math.round(percentage * 10) / 10; // Rounds to one decimal place
-  return roundedPercentage;
+    li.appendChild(span);
+    li.appendChild(b);
+    li.appendChild(document.createTextNode(content));
+    
+    return li;
 }
