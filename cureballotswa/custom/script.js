@@ -35,9 +35,9 @@ function GenerateCountyCards() {
 		const ul = document.createElement('ul');
 		ul.className = 'icon-ul';
 		
-		const emailLi = createIconListItem('fa-solid fa-envelope', 'Email', jsonObj.email);
-		const phoneLi = createIconListItem('fa-solid fa-phone-alt', 'Phone', jsonObj.phone);
-		const faxLi = createIconListItem('fa-solid fa-fax', 'Fax', jsonObj.fax);
+		const emailLi = createIconListItem('fa-solid fa-envelope', 'Email: ', jsonObj.email);
+		const phoneLi = createIconListItem('fa-solid fa-phone-alt', 'Phone: ', jsonObj.phone);
+		const faxLi = createIconListItem('fa-solid fa-fax', 'Fax: ', jsonObj.fax);
 
 		ul.appendChild(emailLi);
 		ul.appendChild(phoneLi);
@@ -52,61 +52,51 @@ function GenerateCountyCards() {
 
 		// Add the header to the inner div
 		innerDiv.appendChild(header);
-		
+
+		// Email cure
 		if (jsonObj.canEmailCurePic) {
-			const canEmailPicP = document.createElement('p');
-			canEmailPicP.textContent = '✓ Can email cure picture!';
-
-			// Append the <p> element to the inner div
-			innerDiv.appendChild(canEmailPicP);
+			const ulEmailCure = document.createElement('ul');
+			ulEmailCure.className = 'icon-ul';
+			const emailCureLi = createIconListItem('fa-solid fa-check-circle', '', 'Can email cure picture!');
+			ulEmailCure.appendChild(emailCureLi);
+			innerDiv.appendChild(ulEmailCure);
 		}
 
-		// Add address paragraph to the inner div
-		const addressP = document.createElement('p');
-		addressP.innerHTML = jsonObj.address;
-		innerDiv.appendChild(addressP);
-			
-		if (jsonObj.secondaryaddress) {
-			const secondaryAddressP = document.createElement('p');
-			secondaryAddressP.innerHTML = jsonObj.secondaryaddress;
-			innerDiv.appendChild(secondaryAddressP);
+		generateAddresses(innerDiv, jsonObj);
+
+		// Forms	
+		const ulForms = document.createElement('ul');
+		ulForms.className = 'icon-ul';
+		
+		if (jsonObj.usesStatewideForm) {
+			const stateFormLi = createIconListItem('fa-solid fa-link', '', `<a href="${StateGlobals.StatewideForm}" target="_blank">Statewide signature update form</a>`);
+			ulForms.appendChild(stateFormLi);
 		}
 		
-		// Add office hours paragraph to the inner div
-		const officeHoursP = document.createElement('p');
-		officeHoursP.innerHTML = jsonObj.officehours;
-		innerDiv.appendChild(officeHoursP);
-
-		// Forms
+		if (jsonObj.forms) {
+			// Loop through the forms object and create list items for each form
+			for (const [formName, formUrl] of Object.entries(jsonObj.forms)) {
+				const formLi = createIconListItem('fa-solid fa-link', '', `<a href="${formUrl}" target="_blank">${formName}</a>`
+				);
+				ulForms.appendChild(formLi);
+			}
+		}
+		
+		innerDiv.appendChild(ulForms);
+		
 		if (jsonObj.customFormName) {
 			const customFormP = document.createElement('p');
 			customFormP.innerHTML = `🔗 <a href="${jsonObj.customFormUrl}" target="_blank">${jsonObj.customFormName}</a>`;
 			innerDiv.appendChild(customFormP);
-		}	
-	
-		if (jsonObj.usesStatewideForm) {
-			const statewideSigFormP = document.createElement('p');
-			statewideSigFormP.innerHTML = `🔗 <a href="${StateGlobals.StatewideForm}" target="_blank">Statewide signature update form</a>`;
-			innerDiv.appendChild(statewideSigFormP);
-		}
-		
-		if (jsonObj.customMissingSigForm) {
-			const missingSigFormP = document.createElement('p');
-			missingSigFormP.innerHTML = `🔗 <a href="${jsonObj.customMissingSigForm}" target="_blank">Missing signature form</a>`;
-			innerDiv.appendChild(missingSigFormP);
-		}
-		
-		if (jsonObj.customMismatchedSigForm) {
-			const mismatchedSigFormP = document.createElement('p');
-			mismatchedSigFormP.innerHTML = `🔗 <a href="${jsonObj.customMismatchedSigForm}" target="_blank">Mismatched signature form</a>`;
-			innerDiv.appendChild(mismatchedSigFormP);
 		}
 		
 		// Extra info
 		if (jsonObj.extraInfo) {
-			const extrainfoP = document.createElement('p');
-			extrainfoP.innerHTML = "🛈 " + jsonObj.extraInfo;
-			innerDiv.appendChild(extrainfoP);
+			const ulExtra = document.createElement('ul');
+			ulExtra.className = 'icon-ul';
+			const extraInfoLi = createIconListItem('fa-solid fa-info-circle', '', jsonObj.extraInfo);
+			ulExtra.appendChild(extraInfoLi);
+			innerDiv.appendChild(ulExtra);
 		}
 
 		// Add the inner div to the section
@@ -123,6 +113,38 @@ function GenerateCountyCards() {
 	}
 }
 
+function generateAddresses(containerDiv, county) {
+	// Create the first UL for address and office hours
+	const ulAddressHours = document.createElement('ul');
+	ulAddressHours.className = 'icon-ul';
+
+	const addressItem = createIconListItem('fa-solid fa-map-marker-alt', '', county.address);
+	ulAddressHours.appendChild(addressItem);
+
+	const hoursItem = createIconListItem('fa-solid fa-clock', 'Hours: ', county.officehours);
+	ulAddressHours.appendChild(hoursItem);
+
+	containerDiv.appendChild(ulAddressHours);
+
+	// Create the second UL if secondary address exists
+	if (county.secondaryaddress) {
+		const ulSecondary = document.createElement('ul');
+		ulSecondary.className = 'icon-ul';
+
+		const secondaryAddressItem = createIconListItem('fa-solid fa-map-marker-alt', '', county.secondaryaddress);
+		ulSecondary.appendChild(secondaryAddressItem);
+
+		const secondaryHoursItem = createIconListItem(
+			'fa-solid fa-clock',
+			'Hours: ',
+			county.secondaryofficehours || county.officehours
+		);
+		ulSecondary.appendChild(secondaryHoursItem);
+
+		containerDiv.appendChild(ulSecondary);
+	}	
+}
+
 // Function to create list item for icon li class
 function createIconListItem(iconClass, label, content) {
     const li = document.createElement('li');
@@ -134,11 +156,14 @@ function createIconListItem(iconClass, label, content) {
     span.appendChild(icon);
 
     const b = document.createElement('b');
-    b.textContent = `${label}: `;
+    b.textContent = `${label}`;
 
     li.appendChild(span);
     li.appendChild(b);
-    li.appendChild(document.createTextNode(content));
+    // Create a temporary container to parse HTML content
+    const contentContainer = document.createElement('span');
+    contentContainer.innerHTML = content; // Set HTML content
+    li.appendChild(contentContainer);
     
     return li;
 }

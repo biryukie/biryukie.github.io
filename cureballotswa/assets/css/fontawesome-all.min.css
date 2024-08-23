@@ -12,7 +12,10 @@
 .icon-ul {
   list-style-type: none;
   margin-left: var(--fa-li-margin, 1.5em);
-  padding-left: 0; }
+  padding-left: 0; 
+  margin-bottom: 1em;
+  line-height: 1.9em;
+}
   .icon-ul > li {
 	position: relative; }
 

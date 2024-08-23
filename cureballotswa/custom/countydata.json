@@ -38,11 +38,9 @@ countyElectionsData = [
 	"secondaryaddress": "Elections Office<br/>2618 N Columbia Center Blvd<br/>Richland, WA 99352",
 	"extraInfo": "Email form to auditor@co.benton.wa.us",
 	"usesStatewideForm": true,
-	"customMissingSigForm" : "https://bentoncountywa.municipalone.com//files/documents/MissingSignature-English1420014101010824PM.pdf",
-	"customMismatchedSigForm" : "https://bentoncountywa.municipalone.com//files/documents/SignatureUpdate-English1420112001040524PM.pdf",
 	"forms": {
-			"Benton Missing Signature Form": "https://bentoncountywa.municipalone.com//files/documents/MissingSignature-English1420014101010824PM.pdf",
-			"Benton Mismatched Signature Form": "https://bentoncountywa.municipalone.com//files/documents/SignatureUpdate-English1420112001040524PM.pdf"
+			"Benton missing signature form": "https://bentoncountywa.municipalone.com//files/documents/MissingSignature-English1420014101010824PM.pdf",
+			"Benton mismatched signature form": "https://bentoncountywa.municipalone.com//files/documents/SignatureUpdate-English1420112001040524PM.pdf"
 	},
 	"pic": "bentonco.jpg",
 	"lastupdated": "2024-08-18",
